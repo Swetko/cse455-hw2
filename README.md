@@ -22,6 +22,7 @@ To compile our project
 
 Please run all executables from `cse455-hw2`. Cmake is set-up so the executables appear in the main folder.
 
+You can use `./test0`, `test1` to test your previous code as well. Also `./test2` is provided which is a sample driver program and does some basic tests and runs most parts of your algorithm. If `./test2` runs without errors and produces some panoramic images as well as good matches then it's a good chance that you are about 75% done.
 
 ## Let's make a panorama! ##
 
