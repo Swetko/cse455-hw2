@@ -24,6 +24,8 @@ Please run all executables from `cse455-hw2`. Cmake is set-up so the executables
 
 You can use `./test0`, `test1` to test your previous code as well. Also `./test2` is provided which is a sample driver program and does some basic tests and runs most parts of your algorithm. If `./test2` runs without errors and produces some panoramic images as well as good matches then it's a good chance that you are about 75% done.
 
+If you want to remove timing information, add `#define TIME(a)` at the end of `utils.h`
+
 ## Let's make a panorama! ##
 
 This homework covers a lot, including finding keypoints in an image, describing those key points, matching them to those points in another image, computing the transform from one image to the other, and stitching them together into a panorama.
