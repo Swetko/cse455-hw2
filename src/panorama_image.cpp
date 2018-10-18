@@ -345,7 +345,9 @@ Image combine_images(const Image& a, const Image& b, const Matrix& Hba, float ab
   // inside of the bounds of image b. If so, use bilinear interpolation to
   // estimate the value of b at that projection, then fill in image c.
   
-  //TIME(1);
+  // When doing cylindrical and spherical, how do we cope with the missing 
+  // image values due to the warping process?
+  
   
   NOT_IMPLEMENTED();
   
@@ -382,7 +384,7 @@ Image panorama_image(const Image& a, const Image& b, float sigma, int corner_met
 // returns: image projected onto cylinder, then flattened.
 Image cylindrical_project(const Image& im, float f)
   {
-  //TODO: project image onto a cylinder
+  // TODO: project image onto a cylinder
   NOT_IMPLEMENTED();
   
   return im;
@@ -394,7 +396,7 @@ Image cylindrical_project(const Image& im, float f)
 // returns: image projected onto cylinder, then flattened.
 Image spherical_project(const Image& im, float f)
   {
-  //TODO: project image onto a sphere
+  // TODO: project image onto a sphere
   NOT_IMPLEMENTED();
   return im;
   }

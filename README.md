@@ -233,7 +233,7 @@ With all this working you should be able to create some basic panoramas:
 Mapping all the images back to the same coordinates is bad for large field-of-view panoramas, as discussed in class. Our pipeline is going to change by reprojecting out images to different coordinates before inputting them to `panorama_image`.
 
 ### 4.1 Cylindrical ###
- Implement `Image cylindrical_project(const Image& im, float f)` to project an image to cylindrical coordinates and then unroll it. Then stitch together some very big panoramas. Send in your favorite. Use your own images if you want!
+ Implement `Image cylindrical_project(const Image& im, float f)` to project an image to cylindrical coordinates and then unroll it. Then stitch together some very big panoramas (the `field*.jpg` panorama)
 
     Image pan=panorama_image(cylindrical_project(a,500),cylindrical_project(b,500),2,0,0.3,7,3,5,1000,50,0.5);
     save_image(pan, "easy_panorama_cyl");
@@ -241,7 +241,7 @@ Mapping all the images back to the same coordinates is bad for large field-of-vi
 ![panorama_cyl](figs/easy_panorama_cyl.jpg)
 
 ### 4.2 Spherical ###
-Implement `Image spherical_project(const Image& im, float f)` to project an image to spherical coordinates and then unwarp it. Then stitch together some very big panoramas. Send in your favorite. Use your own images if you want!
+Implement `Image spherical_project(const Image& im, float f)` to project an image to spherical coordinates and then unwarp it. Then stitch together some very big panoramas (the `field*.jpg` panorama)
 
     Image pan=panorama_image(spherical_project(a,500),spherical_project(b,500),2,0,0.3,7,3,5,1000,50,0.5);
     save_image(pan, "easy_panorama_sphere");
