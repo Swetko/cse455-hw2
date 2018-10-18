@@ -124,7 +124,7 @@ int main(int argc, char** argv)
     };
   
   pangolin::Var<std::function<void(void)>>("ui.Run_RANSAC", runRANSAC);
-  pangolin::Var<string> filename("ui.filename","3");
+  pangolin::Var<string> filename("ui.filename","output");
   pangolin::Var<std::function<void(void)>>("ui.SaveImage", [&](void){ save_png(combined,string("output/")+string(filename)); });
   pangolin::Var<std::function<void(void)>>("ui.SaveScreenshot", [&](void){ save_png(download_framebuffer(UI_WIDTH),"output/screenshot"); });
   

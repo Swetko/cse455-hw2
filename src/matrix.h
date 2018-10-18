@@ -45,6 +45,7 @@ struct Matrix
     data=a.data;
     
     a.data=nullptr;
+    return *this;
     }
   
   // access

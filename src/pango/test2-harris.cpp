@@ -45,7 +45,7 @@ int main(int argc, char** argv)
   pangolin::Var<int> nms_rad("ui.nms_rad",3,1,50,true);
   pangolin::Var<int> descriptor_window("ui.descriptor_window",5,5,20);
   pangolin::Var<bool> corner_method("ui.exact2ndEV",false,0,1);
-  pangolin::Var<float> thresh_corner("ui.thresh_corner",0.2,1e-2,1e3,true);
+  pangolin::Var<float> thresh_corner("ui.thresh_corner",0.2,1e-2,1e1,true);
   pangolin::Var<bool> show_nms("ui.show_nms",false,0,1);
   pangolin::Var<bool> show_corners("ui.show_corners",true,0,1);
   pangolin::Var<std::function<void(void)>>("ui.SaveScreenshot", [&](void){ save_png(download_framebuffer(UI_WIDTH),"output/screenshot"); });
