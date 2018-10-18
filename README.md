@@ -54,7 +54,7 @@ So we'll find the corner points in an image using a Harris corner detector. Then
 
 First we need to find those corners!
 
-## 0. Visualization ##
+## 0. Visualization with Pangolin ##
 In order to help debugging we introduce the functions `detect_and_draw_corners` and `find_and_draw_matches` which visualize the results of the functions that you implemented. Look in `test2.cpp` and in the code as to how to use them.
 
 Also if you want to bring your visualization to the next level we introduce another tool: Pangolin!
@@ -101,6 +101,8 @@ You should see this output if Pangolin is found
     Building WITH Visualization
     ---------------------------------------------
 
+### 0.6 Useful shortcuts ###
+You can use scroll to zoom in/out in pictures. Try zooming in A LOT and pressing 'n'. That switches between NN and Bilinear display of the images in pangolin. You can use right click to move the image around and left click to select regions. Try selecting a region and pressing 'a'. Try different regions! Do you notice what's happening? It normalizes the intensity so the patch you selected is between 0 and 1. This way you can inspect underexposed pictures, etc. Try pressing 'b' in a region! Look in the command line! It shows the min/max value in region!
 
 ## 1. Harris corner detection ##
 
