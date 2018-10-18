@@ -15,15 +15,6 @@ void test_structure()
   save_png(s, "output/structure");
   Image gt = load_image("data/structure.png");
   
-  for(int c=0;c<gt.c;c++)
-  for(int q2=0;q2<gt.h;q2++)for(int q1=0;q1<gt.w;q1++)
-    {
-    float x=s(q1,q2,c);
-    float y=gt(q1,q2,c);
-    
-    //if(x<0.1)printf("%3d %3d %3d   %f %f %f\n",c,q1,q2,x,y,x-y);
-    }
-  
   TEST(same_image(s, gt));
   }
 
@@ -54,17 +45,24 @@ int main(int argc, char **argv)
   
   run_tests();
   
-  Image im = load_image("pano/Rainier1.png");
-  Image corners=detect_and_draw_corners(im, 2, 0.4, 5, 3, 0);
+  Image a = load_image("pano/Rainier1.png");
+  Image b = load_image("pano/Rainier2.png");
+  
+  Image corners=detect_and_draw_corners(a, 2, 0.4, 5, 3, 0);
   save_image(corners, "output/corners");
   
   
-  Image a = load_image("pano/Rainier1.png");
-  Image b = load_image("pano/Rainier2.png");
+  vector<Descriptor> ad=harris_corner_detector(a, 2, 0.4, 5, 3, 0);
+  vector<Descriptor> bd=harris_corner_detector(b, 2, 0.4, 5, 3, 0);
+  
+  vector<Match> match=match_descriptors(ad,bd);
+  Image inliers=draw_inliers(a,b,RANSAC(match,5,1000,50),match,5);
+  
   Image m = find_and_draw_matches(a, b, 2, 0.4, 7, 3, 0);
   Image pan=panorama_image(a,b,2,0,0.3,7,3,5,1000,50,0.5);
   
   save_image(m, "output/matches");
+  save_image(inliers, "output/inliers");
   save_image(pan, "output/easy_panorama");
   
   save_image(panorama_image(cylindrical_project(a,500),cylindrical_project(b,500),2,0,0.3,7,3,5,1000,50,0.5), "output/easy_panorama_cyl");
