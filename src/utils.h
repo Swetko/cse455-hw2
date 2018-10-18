@@ -65,5 +65,8 @@ __ProfileScopeClass(int line,const std::string& fname,int level,const std::strin
 #define COMBINE(X,Y) COMBINE1(X,Y)
 
 
-#define TIME(...) __ProfileScopeClass COMBINE(__t,__LINE__) (__LINE__,__FUNCTION__,__VA_ARGS__);
+#define TIME(...) __ProfileScopeClass COMBINE(__t,__LINE__) (__builtin_LINE(),__builtin_FUNCTION(),__VA_ARGS__);
 
+
+#define NOT_IMPLEMENTED() do{static bool done=false;if(!done)fprintf(stderr,"Function \"%s\"  in file \"%s\" line %d not implemented yet!!!\n",__FUNCTION__, __FILE__, __LINE__);done=true;}while(0)
+//#define NOT_IMPLEMENTED() 
