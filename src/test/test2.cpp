@@ -13,7 +13,7 @@ void test_structure()
   Image s = structure_matrix(im, 2);
   s.feature_normalize_total();
   save_png(s, "output/structure");
-  Image gt = load_image("figs/structure.png");
+  Image gt = load_image("data/structure.png");
   
   for(int c=0;c<gt.c;c++)
   for(int q2=0;q2<gt.h;q2++)for(int q1=0;q1<gt.w;q1++)
@@ -34,7 +34,7 @@ void test_cornerness()
   Image c = cornerness_response(s,0);
   c.feature_normalize_total();
   save_png(c, "output/response");
-  Image gt = load_image("figs/response.png");
+  Image gt = load_image("data/response.png");
   TEST(same_image(c, gt));
   }
 
@@ -54,13 +54,13 @@ int main(int argc, char **argv)
   
   run_tests();
   
-  Image im = load_image("data/Rainier1.png");
+  Image im = load_image("pano/Rainier1.png");
   Image corners=detect_and_draw_corners(im, 2, 0.4, 5, 3, 0);
   save_image(corners, "output/corners");
   
   
-  Image a = load_image("data/Rainier1.png");
-  Image b = load_image("data/Rainier2.png");
+  Image a = load_image("pano/Rainier1.png");
+  Image b = load_image("pano/Rainier2.png");
   Image m = find_and_draw_matches(a, b, 2, 0.4, 7, 3, 0);
   Image pan=panorama_image(a,b,2,0,0.3,7,3,5,1000,50,0.5);
   

@@ -43,7 +43,7 @@ void test_grayscale()
   {
   Image im = load_image("data/colorbar.png");
   Image gray = rgb_to_grayscale(im);
-  Image g = load_image("figs/gray.png");
+  Image g = load_image("data/gray.png");
   TEST(same_image(gray, g));
   }
 
@@ -71,7 +71,7 @@ void test_rgb_to_hsv()
   {
   Image im = load_image("data/dog.jpg");
   rgb_to_hsv(im);
-  Image hsv = load_image("figs/dog.hsv.png");
+  Image hsv = load_image("data/dog.hsv.png");
   TEST(same_image(im, hsv));
   }
 

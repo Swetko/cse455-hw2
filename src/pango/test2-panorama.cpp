@@ -32,8 +32,8 @@ struct Data
 
 int main(int argc, char** argv)
   {
-  const string file1=argc==3?argv[1]:"data/Rainier1.png";
-  const string file2=argc==3?argv[2]:"data/Rainier2.png";
+  const string file1=argc==3?argv[1]:"pano/Rainier1.png";
+  const string file2=argc==3?argv[2]:"pano/Rainier2.png";
   
   // Create OpenGL window in single line
   pangolin::CreateWindowAndBind("Main",1280,720);
@@ -144,8 +144,8 @@ int main(int argc, char** argv)
     if(recompute)
       {
       thread th1([&](){d1.process(projection_type,focal,structure_blur,nms_rad,thresh_corner,descriptor_window,corner_method);});
-      th1.join();
       thread th2([&](){d2.process(projection_type,focal,structure_blur,nms_rad,thresh_corner,descriptor_window,corner_method);});
+      th1.join();
       th2.join();
       
       match=match_descriptors(d1.desc,d2.desc);

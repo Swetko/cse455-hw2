@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, char** argv)
   {
-  string file="data/Rainier1.png";
+  string file="pano/Rainier1.png";
   
   if(argc==2)file=argv[1];
   

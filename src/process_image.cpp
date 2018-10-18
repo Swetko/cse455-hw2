@@ -12,6 +12,7 @@ Image rgb_to_grayscale(const Image& im)
   {
   // TODO Fill this in
   NOT_IMPLEMENTED();
+  return Image(1,1);
   }
 
 void shift_image(Image& im, int c, float v)

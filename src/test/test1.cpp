@@ -9,12 +9,12 @@ void test_nn_resize()
   {
   Image im = load_image("data/dogsmall.jpg");
   Image resized = nn_resize(im, im.w*4, im.h*4);
-  Image gt = load_image("figs/dog4x-nn-for-test.png");
+  Image gt = load_image("data/dog4x-nn-for-test.png");
   TEST(same_image(resized, gt));
   
   Image im2 = load_image("data/dog.jpg");
   Image resized2 = nn_resize(im2, 713, 467);
-  Image gt2 = load_image("figs/dog-resize-nn.png");
+  Image gt2 = load_image("data/dog-resize-nn.png");
   TEST(same_image(resized2, gt2));
   }
 
@@ -22,12 +22,12 @@ void test_bl_resize()
   {
   Image im = load_image("data/dogsmall.jpg");
   Image resized = bilinear_resize(im, im.w*4, im.h*4);
-  Image gt = load_image("figs/dog4x-bl.png");
+  Image gt = load_image("data/dog4x-bl.png");
   TEST(same_image(resized, gt));
 
   Image im2 = load_image("data/dog.jpg");
   Image resized2 = bilinear_resize(im2, 713, 467);
-  Image gt2 = load_image("figs/dog-resize-bil.png");
+  Image gt2 = load_image("data/dog-resize-bil.png");
   TEST(same_image(resized2, gt2));
   }
 
@@ -40,7 +40,7 @@ void test_multiple_resize()
     Image im2 = bilinear_resize(im1, im1.w/4, im1.h/4);
     im = im2;
     }
-  Image gt = load_image("figs/dog-multipleresize.png");
+  Image gt = load_image("data/dog-multipleresize.png");
   TEST(same_image(im, gt));
   }
 
@@ -51,7 +51,7 @@ void test_highpass_filter()
   Image f = make_highpass_filter();
   Image blur = convolve_image(im, f, 0);
   blur.clamp();
-  Image gt = load_image("figs/dog-highpass.png");
+  Image gt = load_image("data/dog-highpass.png");
   TEST(same_image(blur, gt));
   }
 
@@ -62,7 +62,7 @@ void test_emboss_filter()
   Image blur = convolve_image(im, f, 1);
   blur.clamp();
   
-  Image gt = load_image("figs/dog-emboss.png");
+  Image gt = load_image("data/dog-emboss.png");
   TEST(same_image(blur, gt));
   }
 
@@ -73,7 +73,7 @@ void test_sharpen_filter()
   Image blur = convolve_image(im, f, 1);
   blur.clamp();
   
-  Image gt = load_image("figs/dog-sharpen.png");
+  Image gt = load_image("data/dog-sharpen.png");
   TEST(same_image(blur, gt));
   }
 
@@ -84,7 +84,7 @@ void test_convolution()
   Image blur = convolve_image(im, f, 1);
   blur.clamp();
   
-  Image gt = load_image("figs/dog-box7.png");
+  Image gt = load_image("data/dog-box7.png");
   TEST(same_image(blur, gt));
   }
 
@@ -94,7 +94,7 @@ void test_gaussian_filter()
   
   for(int i = 0; i < f.w * f.h * f.c; i++)f.data[i] *= 100;
   
-  Image gt = load_image("figs/gaussian_filter_7.png");
+  Image gt = load_image("data/gaussian_filter_7.png");
   TEST(same_image(f, gt));
   }
 
@@ -105,7 +105,7 @@ void test_gaussian_blur()
   Image blur = convolve_image(im, f, 1);
   blur.clamp();
   
-  Image gt = load_image("figs/dog-gauss2.png");
+  Image gt = load_image("data/dog-gauss2.png");
   TEST(same_image(blur, gt));
   }
 
@@ -118,7 +118,7 @@ void test_hybrid_image()
   Image lfreq_w = convolve_image(woman, f, 1);
   Image hfreq_w = woman - lfreq_w;
   Image reconstruct = lfreq_man + hfreq_w;
-  Image gt = load_image("figs/hybrid.png");
+  Image gt = load_image("data/hybrid.png");
   reconstruct.clamp();
   TEST(same_image(reconstruct, gt));
   }
@@ -131,8 +131,8 @@ void test_frequency_image()
   Image hfreq = im - lfreq;
   Image reconstruct = lfreq + hfreq;
   
-  Image low_freq = load_image("figs/low-frequency.png");
-  Image high_freq = load_image("figs/high-frequency-clamp.png");
+  Image low_freq = load_image("data/low-frequency.png");
+  Image high_freq = load_image("data/high-frequency-clamp.png");
   
   lfreq.clamp();
   hfreq.clamp();
@@ -151,8 +151,8 @@ void test_sobel()
   feature_normalize(mag);
   feature_normalize(theta);
   
-  Image gt_mag = load_image("figs/magnitude.png");
-  Image gt_theta = load_image("figs/theta.png");
+  Image gt_mag = load_image("data/magnitude.png");
+  Image gt_theta = load_image("data/theta.png");
   TEST(gt_mag.w == mag.w && gt_theta.w == theta.w);
   TEST(gt_mag.h == mag.h && gt_theta.h == theta.h);
   TEST(gt_mag.c == mag.c && gt_theta.c == theta.c);
