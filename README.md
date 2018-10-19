@@ -2,6 +2,8 @@
 
 # CSE 455 Homework 2 #
 
+### UPDATED: Friday, Oct19 8am: added libglew to repo so you can build Pangolin without root access
+
 Welcome friends,
 
 It's time for assignment 2! This one may be a little harder than the last one so remember to start early and start often!
@@ -105,7 +107,6 @@ Install any missing dependencies.
     #### CHANGE PREVIOUS LINE
     
     cmake .. -DGLEW_INCLUDE_DIR=$hw2dir/glew/include/ -DGLEW_LIBRARY=$hw2dir/glew/lib/libGLEW.so -DGLEW_FOUND=TRUE
-    cmake ..
     make -j4
 
 ### 0.4 Install Pangolin on MacOS ###
