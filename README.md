@@ -13,7 +13,7 @@ Please copy the code for the methods you are going to use from your old `process
 
 We will be continuing to build out your image library.
 
-To compile our project
+To compile our project (under Linux/Mac)
 
     cd cse455-hw2
     cd build
@@ -21,6 +21,15 @@ To compile our project
     make -j4
 
 Please run all executables from `cse455-hw2`. Cmake is set-up so the executables appear in the main folder.
+
+For Windows with VS installed try:
+
+    cd cse455-hw2
+    cd build
+    cmake ..
+    cmake --build .
+
+Or alternatively you can create your own project. It's fairly simple.
 
 You can use `./test0`, `test1` to test your previous code as well. Also `./test2` is provided which is a sample driver program and does some basic tests and runs most parts of your algorithm. If `./test2` runs without errors and produces some panoramic images as well as good matches then it's a good chance that you are about 75% done.
 
@@ -62,29 +71,33 @@ Also if you want to bring your visualization to the next level we introduce anot
 
 It allows you to modify the parameters of your algorithms and visualize the results immediately. To make use of it go to [Pangolin GitHub](https://github.com/stevenlovegrove/Pangolin). Pangolin supports Linux, Windows and MacOS. However, we can only help you install in on Linux, but if you manage to build it on MacOS or Windows please share!
 
-### 0.1 Install Pangolin on Ubuntu ###
+### 0.1 Install Pangolin on Ubuntu or Debian ###
+    sudo apt-get install libglew-dev
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
     mkdir build && cd build
     cmake ..
     make -j4
 
-Install any missing dependencies
+Install any missing dependencies.
 
-### 0.2 Install Pangolin on Fedora ###
+### 0.2 Install Pangolin on Fedora or CentOS ###
+    sudo yum install glew-devel.x86_64
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
     mkdir build && cd build
     cmake ..
     make -j4
 
-Install any missing dependencies
+Install any missing dependencies.
 
 ### 0.3 Install Pangolin on MacOS ###
 Here's a link that might help: [Pangolin GitHub macOS issue](https://github.com/stevenlovegrove/Pangolin/issues/298)
 
 ### 0.4 Install Pangolin on Windows ###
 Here's a link that might help: [Pangolin GitHub windows issue](https://github.com/stevenlovegrove/Pangolin/issues/425)
+
+I downloaded it from this linke [Pangolin Windows binaries](https://ci.appveyor.com/api/buildjobs/mx6xar9p9rf5eymu/artifacts/pangolin_build.zip) and it works on Windows 10. Try it and if it does try compiling the visualizer files from our project!
 
 ### 0.5 Set up your project ###
 On linux once you compile Pangolin, it should be found by our project.
