@@ -75,7 +75,8 @@ It allows you to modify the parameters of your algorithms and visualize the resu
     sudo apt-get install libglew-dev
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
-    mkdir build && cd build
+    mkdir build
+    cd build
     cmake ..
     make -j4
 
@@ -85,21 +86,37 @@ Install any missing dependencies.
     sudo yum install glew-devel.x86_64
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
-    mkdir build && cd build
+    mkdir build
+    cd build
     cmake ..
     make -j4
 
 Install any missing dependencies.
 
-### 0.3 Install Pangolin on MacOS ###
+
+### 0.3 Install Pangolin on CSE machines without root access ###
+    git clone https://github.com/stevenlovegrove/Pangolin.git
+    cd Pangolin
+    mkdir build
+    cd build
+    
+    #### CHANGE NEXT LINE
+    hw2dir=/home/swetko/cse455/empty/cse455-hw2 #### PUT YOUR cse455-hw2 folder here!!!
+    #### CHANGE PREVIOUS LINE
+    
+    cmake .. -DGLEW_INCLUDE_DIR=$hw2dir/glew/include/ -DGLEW_LIBRARY=$hw2dir/glew/out/lib/libGLEW.so -DGLEW_FOUND=TRUE
+    cmake ..
+    make -j4
+
+### 0.4 Install Pangolin on MacOS ###
 Here's a link that might help: [Pangolin GitHub macOS issue](https://github.com/stevenlovegrove/Pangolin/issues/298)
 
-### 0.4 Install Pangolin on Windows ###
+### 0.5 Install Pangolin on Windows ###
 Here's a link that might help: [Pangolin GitHub windows issue](https://github.com/stevenlovegrove/Pangolin/issues/425)
 
 I downloaded it from this linke [Pangolin Windows binaries](https://ci.appveyor.com/api/buildjobs/mx6xar9p9rf5eymu/artifacts/pangolin_build.zip) and it works on Windows 10. Try it and if it does try compiling the visualizer files from our project!
 
-### 0.5 Set up your project ###
+### 0.6 Set up your project ###
 On linux once you compile Pangolin, it should be found by our project.
 
     cd cse455-hw2
