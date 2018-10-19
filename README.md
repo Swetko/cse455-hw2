@@ -104,7 +104,7 @@ Install any missing dependencies.
     hw2dir=/home/swetko/cse455/empty/cse455-hw2 #### PUT YOUR cse455-hw2 folder here!!!
     #### CHANGE PREVIOUS LINE
     
-    cmake .. -DGLEW_INCLUDE_DIR=$hw2dir/glew/include/ -DGLEW_LIBRARY=$hw2dir/glew/out/lib/libGLEW.so -DGLEW_FOUND=TRUE
+    cmake .. -DGLEW_INCLUDE_DIR=$hw2dir/glew/include/ -DGLEW_LIBRARY=$hw2dir/glew/lib/libGLEW.so -DGLEW_FOUND=TRUE
     cmake ..
     make -j4
 
