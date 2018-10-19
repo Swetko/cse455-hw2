@@ -2,7 +2,7 @@
 
 # CSE 455 Homework 2 #
 
-### UPDATED: Friday, Oct19 8am: added libglew to repo so you can build Pangolin without root access
+#### UPDATED: Friday, Oct19 8am: added libglew.so, you can build Pangolin without sudo ####
 
 Welcome friends,
 
