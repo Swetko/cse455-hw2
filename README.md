@@ -3,6 +3,7 @@
 # CSE 455 Homework 2 #
 
 #### UPDATED: Friday, Oct19 8am: added libglew.so, you can build Pangolin without sudo ####
+#### UPDATED: Friday, Oct19 11am: added Visual Studio 2017 project with Pangolin for Windows.
 
 Welcome friends,
 
