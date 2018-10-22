@@ -33,7 +33,7 @@ For Windows with VS installed try:
     cmake ..
     cmake --build .
 
-Or alternatively you can create your own project. It's fairly simple.
+and fix any erros. Or alternatively you can create your own project. It's fairly simple. Or you can use the provided solution for VS2017 in the `vs` folder.
 
 You can use `./test0`, `test1` to test your previous code as well. Also `./test2` is provided which is a sample driver program and does some basic tests and runs most parts of your algorithm. If `./test2` runs without errors and produces some panoramic images as well as good matches then it's a good chance that you are about 75% done.
 
