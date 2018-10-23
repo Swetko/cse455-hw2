@@ -1,4 +1,4 @@
-![panorama of field](figs/field_panorama.jpg)
+![panorama of field](figs/columbia-all.jpg)
 
 # CSE 455 Homework 2 #
 
