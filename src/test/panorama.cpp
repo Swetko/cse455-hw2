@@ -67,7 +67,7 @@ void do_columbia_peak(void)
   string outdir="output/columbia/";
   
   image_map im;
-  load_images(im,indir,outdir,11,2,1310);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  load_images(im,indir,outdir,11,2,1310);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
   
   vector < thread > th; 
   
@@ -100,7 +100,9 @@ void do_rainier(void)
   string outdir="output/rainier/";
   
   image_map im;
-  load_images(im,indir,outdir,6,0,710);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  load_images(im,indir,outdir,6);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  
+  //TODO: Adjust settings if you don't get panorama at first
   
   create_panorama(im,"0-1","0","1" ,2,0,0.05,7,7,5,50000,100,0.5);
   create_panorama(im,"2-3","2","3" ,2,0,0.05,7,7,5,50000,100,0.5);
@@ -121,7 +123,8 @@ void do_field(void)
   string outdir="output/field/";
   
   image_map im;
-  load_images(im,indir,outdir,8,1,1200);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  //TODO: Adjust settings if you don't get panorama at first (including projection method and FOV
+  load_images(im,indir,outdir,8,1,1200);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
   
   vector < thread > th; 
   
@@ -149,19 +152,15 @@ void do_helens(void)
   string outdir="output/helens/";
   
   image_map im;
-  load_images(im,indir,outdir,6,1,950);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  // TODO: choose projection and FOV in pixels
+  load_images(im,indir,outdir,6,0,0);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
   
   vector < thread > th; 
   
+  // TODO: Create a sequence that produces file named "all" (like in field and rainier example). 
+  // HINT: you can use multithreading like the field example.
   
-  th.push_back(thread([&](){create_panorama(im,"0-1","0","1" ,2,0,0.05,11,7,5,150000,100,0.5);}));
-  th.push_back(thread([&](){create_panorama(im,"2-3","2","3" ,2,0,0.05,11,7,5,150000,100,0.5);}));
-  th.push_back(thread([&](){create_panorama(im,"4-5","4","5" ,2,0,0.05,11,7,5,150000,100,0.5);}));
-  for(auto&e1:th)e1.join();th.clear();
-  
-  
-  create_panorama(im,"0--3", "0-1",  "2-3" ,2,0,0.05,11,7,5,50000,100,0.5);
-  create_panorama(im,"all" , "0--3", "4-5" ,2,0,0.05,11,7,5,50000,100,0.5);
+  NOT_IMPLEMENTED();
   
   save_images(im,outdir);
   
@@ -175,17 +174,15 @@ void do_sun(void)
   string outdir="output/sun/";
   
   image_map im;
-  load_images(im,indir,outdir,5,1,1000);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  // TODO: choose projection and FOV in pixels
+  load_images(im,indir,outdir,5,0,0);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
   
   vector < thread > th; 
   
+  // TODO: Create a sequence that produces file named "all" (like in field and rainier example). 
+  // HINT: you can use multithreading like the field example.
   
-  th.push_back(thread([&](){create_panorama(im,"0-1","0","1" ,2,0,0.05,11,7,5,150000,100,0.5);}));
-  th.push_back(thread([&](){create_panorama(im,"2-3","2","3" ,2,0,0.05,11,7,5,150000,100,0.5);}));
-  for(auto&e1:th)e1.join();th.clear();
-  
-  create_panorama(im,"2--4", "2-3",  "4"   ,2,0,0.05,11,7,5,50000,100,0.5);
-  create_panorama(im,"all" , "0-1", "2--4" ,2,0,0.05,11,7,5,50000,100,0.5);
+  NOT_IMPLEMENTED();
   
   save_images(im,outdir);
   
@@ -200,7 +197,7 @@ void do_white_wall(void)
   string outdir="output/wall/";
   
   image_map im;
-  load_images(im,indir,outdir,24);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  load_images(im,indir,outdir,24);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
   
   vector < thread > th; 
   
@@ -263,7 +260,7 @@ void do_cse_glade(void)
   string outdir="output/cse/";
   
   image_map im;
-  load_images(im,indir,outdir,19,2,1310/1.6);  // im, dir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
+  load_images(im,indir,outdir,19,2,1310/1.6);  // im, dir, outdir, numpics (0..numpics-1),  PROJ_METHOD,  FOV
   
   vector < thread > th; 
   
