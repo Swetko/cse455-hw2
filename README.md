@@ -313,7 +313,7 @@ In order to get perfect grade you not only need to implement each feature of the
 
 We get `output/XXX/all.png` that looks stiched well (small imperfection such as in `columbia-all.jpg` are acceptable).
 
-#### 5.3 Grading
+#### 5.3 Grading ####
     make_1d_gaussian     3
     smooth_image         4
     structure_matrix     6
@@ -347,3 +347,9 @@ We get `output/XXX/all.png` that looks stiched well (small imperfection such as 
     ./make-panorama cse           20  OPT  (if you stitch 15 or more of the pics you get credit! I got at most 8)
     ./make-panorama columbia      10  OPT  (have to stitch all of them, and get similar result to the header of the readme)
     (exact_eigenvalue,method=1)    5  OPT
+
+
+#### 5.4 For Fun ####
+Play with `make-panorama wall/cse/columbia`. Can you stitch them? If not why? Is it because of bad projections? Try `wall`. This contains archaeological writings from the last few years and makes for a nice flat panorama. Remember, homography should only work on flat surfaces!! Try stitching any two overlapping images. Notice how perfect the stitching is?? Now try to do more! Notice any problems? Why is that? Do we need better features (sift?) ? Why does geometry looks so distorted?? Wasn't homography fine for flat surfaces? What's going on?? Can you figure out a way to fix it?
+
+You are not graded on this, but highly recommended to play with those. It'll help you get a lot of intuition about cameras, 3d/2d geometry and projections and features. Making a panorama software has so many components!!
