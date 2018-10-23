@@ -297,6 +297,53 @@ Will the same algorithm for computing homography work with different projections
 
 Does homography even exist in the cylindrical and spherical case?
 
-## 4. Turn it in ##
+## 5 Turn it in and Grading ##
 
-Turn in your `harris_image.cpp`, `panorama_image.cpp` and some good panoramas you generated on canvas under Assignment 2.
+#### 5.1 What to turn in ####
+You should have to modify only `harris_image.cpp`, `panorama_image.cpp` and `test\panorama.cpp` (excluding changes to the rest of the code due to C++ switch). You can submit just these 3 files (and any supporting files), or the whole folder, as you wish. We are going to test each function separately to give you partial credit.
+
+#### 5.2 Make some panoramas ####
+In order to get perfect grade you not only need to implement each feature of the algorithm but be able to run it to stitch multiple images together. We have provided the program `make-panorama` that can calls your basic function `make_panorama` to create complex panoramas. You would need to choose the parameters of your algorithm. Make sure that the parameters are such that your algorithm can stitch complex panos. If necessary use the `panorama` GUI to help with parameter choosing. Some of the functions are implemented there and some not. For `sun` and `helens` you have to choose the sequence yourself. At the end you should make the necessary changes to `panorama.cpp` so that when we call 
+
+    ./make-panorama rainier
+    ./make-panorama field
+    ./make-panorama sun
+    ./make-panorama helens
+
+We get `output/XXX/all.png` that looks stiched well (small imperfection such as in `columbia-all.jpg` are acceptable).
+
+#### 5.3 Grading
+    make_1d_gaussian	   3
+    smooth_image	       4
+    structure_matrix	   6
+    cornerness_response	   3
+    nms_image	           3
+    detect_corners	       3
+    	                  22
+    	
+    l1_distance	              1
+    match_descriptors_a2b	  5
+    match_descriptors	      5
+    project_point	          3
+    point_distance	          1
+    model_inliers	          5
+    randomize_matches	      2
+    compute_homography_ba	  8
+    RANSAC                 	  8
+    combine_images	          8
+    cylindrical_project	      6
+    spherical_project	      6
+                             58
+    	
+    ./make-panorama rainier	    5 (have to stitch all of them)
+    ./make-panorama sun	        5 (have to stitch all of them)
+    ./make-panorama helens	    5 (have to stitch all of them)
+    ./make-panorama field	    5 (have to stitch just the 6 as per the panorama.cpp)
+    	                       20
+    
+    EXTRA CREDIT:
+    
+    ./make-panorama cse	         20	OPT  (if you stitch 15 or more of the pics you get credit! I got at most 8)
+    ./make-panorama columbia	 10	OPT  (have to stitch all of them, and get similar result to the header of the readme)
+    (exact_eigenvalue,method=1)	  5	OPT
+
