@@ -77,7 +77,7 @@ Image make_1d_gaussian(float sigma)
 // returns: smoothed Image.
 Image smooth_image(const Image& im, float sigma)
   {
-  TIME(1);
+  // TIME(1);
   // TODO: use two convolutions with 1d gaussian filter.
   NOT_IMPLEMENTED();
   return im;
@@ -130,7 +130,7 @@ Image nms_image(const Image& im, int w)
   // for every pixel in the image:
   //     for neighbors within w:
   //         if neighbor response greater than pixel response:
-  //             set response to be very low (I use -999999 [why not 0??])
+  //             set response to be very low
   NOT_IMPLEMENTED();
   return r;
   }

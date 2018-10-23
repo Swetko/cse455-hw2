@@ -131,6 +131,7 @@ vector<int> match_descriptors_a2b(const vector<Descriptor>& a, const vector<Desc
     
     // TODO: find the best 'bind' descriptor in b that best matches a[j]
     // TODO: put your code here:
+    // Optionally: implement the ratio test
     
     NOT_IMPLEMENTED();
     
@@ -168,10 +169,12 @@ vector<Match> match_descriptors(const vector<Descriptor>& a, const vector<Descri
 // returns: point projected using the homography.
 Point project_point(const Matrix& H, const Point& p)
   {
-  Matrix c(3,1);
   // TODO: project point p with homography H.
   // Remember that homogeneous coordinates are equivalent up to scalar.
   // Have to divide by.... something...
+  // You can either use the matrix library that we provide...
+  // Or do the required operations manually (about 100 times faster 
+  // and recommended if you want your combine_images to be fast)
   
   NOT_IMPLEMENTED();
   
@@ -260,8 +263,11 @@ Matrix compute_homography_ba(const vector<Match>& matches)
 // returns: matrix representing most common homography between matches.
 Matrix RANSAC(vector<Match> m, float thresh, int k, int cutoff)
   {
-  if(m.size()<4)printf("Need at least 4 points for RANSAC! %zu supplied\n",m.size());
-  if(m.size()<4)return Matrix::identity(3,3);
+  if(m.size()<4)
+    {
+    //printf("Need at least 4 points for RANSAC! %zu supplied\n",m.size());
+    return Matrix::identity(3,3);
+    }
   TIME(1);
   
   int best = 0;
@@ -283,6 +289,30 @@ Matrix RANSAC(vector<Match> m, float thresh, int k, int cutoff)
   }
 
 
+Image trim_image(const Image& a)
+  {
+  int minx=a.w-1;
+  int maxx=0;
+  int miny=a.h-1;
+  int maxy=0;
+  
+  for(int q3=0;q3<a.c;q3++)for(int q2=0;q2<a.h;q2++)for(int q1=0;q1<a.w;q1++)if(a(q1,q2,q3))
+    {
+    minx=min(minx,q1);
+    maxx=max(maxx,q1);
+    miny=min(miny,q2);
+    maxy=max(maxy,q2);
+    }
+  
+  if(maxx<minx || maxy<miny)return a;
+  
+  Image b(maxx-minx+1,maxy-miny+1,a.c);
+  
+  for(int q3=0;q3<a.c;q3++)for(int q2=miny;q2<=maxy;q2++)for(int q1=minx;q1<=maxx;q1++)
+    b(q1-minx,q2-miny,q3)=a(q1,q2,q3);
+  
+  return b;
+  }
 
 // MIN MAX MACROS
 #define MIN(a,b) (((a)<(b))?(a):(b))
@@ -322,7 +352,7 @@ Image combine_images(const Image& a, const Image& b, const Matrix& Hba, float ab
   
   // Can disable this if you are making very big panoramas.
   // Usually this means there was an error in calculating H.
-  if(w > 4000 || h > 4000)
+  if(w > 15000 || h > 4000)
     {
     printf("Can't make such big panorama :/ (%d %d)\n",w,h);
     return Image(100,100,1);
@@ -351,7 +381,7 @@ Image combine_images(const Image& a, const Image& b, const Matrix& Hba, float ab
   
   NOT_IMPLEMENTED();
   
-  return c;
+  return trim_image(c);
   }
 
 // Create a panoramam between two images.
