@@ -35,6 +35,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pango-panorama", "pango-pan
 		{03FA4B80-EFC9-40FD-8920-657F411B2043} = {03FA4B80-EFC9-40FD-8920-657F411B2043}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "make-panorama", "make-panorama\make-panorama.vcxproj", "{1ADDFCC7-41E8-475E-BC87-5ABE7113AA49}"
+	ProjectSection(ProjectDependencies) = postProject
+		{03FA4B80-EFC9-40FD-8920-657F411B2043} = {03FA4B80-EFC9-40FD-8920-657F411B2043}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -54,6 +59,8 @@ Global
 		{F7E4F5F6-3FF5-4E96-84E4-61217BEBFF20}.Release|x64.Build.0 = Release|x64
 		{FE9D33DE-D4D7-495D-9C28-93BF5F5222E5}.Release|x64.ActiveCfg = Release|x64
 		{FE9D33DE-D4D7-495D-9C28-93BF5F5222E5}.Release|x64.Build.0 = Release|x64
+		{1ADDFCC7-41E8-475E-BC87-5ABE7113AA49}.Release|x64.ActiveCfg = Release|x64
+		{1ADDFCC7-41E8-475E-BC87-5ABE7113AA49}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
