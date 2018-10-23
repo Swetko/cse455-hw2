@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char** argv)
   {
-  string file="pano/Rainier1.png";
+  string file="pano/rainier/Rainier1.png";
   
   if(argc==2)file=argv[1];
   
@@ -83,7 +83,7 @@ int main(int argc, char** argv)
       if(show_nms)
         {
         glColor3d(0,1,0);glLineWidth(1);
-        for(int q2=0;q2<image.h;q2++)for(int q1=0;q1<image.w;q1++)if(nms(q1,q2)!=-1e6f)
+        for(int q2=0;q2<nms.h;q2++)for(int q1=0;q1<nms.w;q1++)if(nms(q1,q2)>0)
           pangolin::glDrawCross(q1,q2,5);
         }
       if(show_corners)

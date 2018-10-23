@@ -45,8 +45,8 @@ int main(int argc, char **argv)
   
   run_tests();
   
-  Image a = load_image("pano/Rainier1.png");
-  Image b = load_image("pano/Rainier2.png");
+  Image a = load_image("pano/rainier/Rainier1.png");
+  Image b = load_image("pano/rainier/Rainier2.png");
   
   Image corners=detect_and_draw_corners(a, 2, 0.4, 5, 3, 0);
   save_image(corners, "output/corners");
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
   vector<Descriptor> bd=harris_corner_detector(b, 2, 0.4, 5, 3, 0);
   
   vector<Match> match=match_descriptors(ad,bd);
-  Image inliers=draw_inliers(a,b,RANSAC(match,5,1000,50),match,5);
+  Image inliers=draw_inliers(a,b,RANSAC(match,5,10000,50),match,5);
   
   Image m = find_and_draw_matches(a, b, 2, 0.4, 7, 3, 0);
   Image pan=panorama_image(a,b,2,0,0.3,7,3,5,1000,50,0.5);

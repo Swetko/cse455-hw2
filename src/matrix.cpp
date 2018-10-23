@@ -49,57 +49,7 @@ Matrix Matrix::identity(int rows, int cols)
   return m;
   }
 
-Matrix operator*(const Matrix& a,const Matrix& b)
-  {
-  assert(a.cols == b.rows);
-  Matrix p(a.rows, b.cols);
-  for(int i = 0; i < p.rows;i++)
-      for(int j = 0; j < p.cols;j++)
-          for(int k = 0; k < a.cols;k++)
-              p(i,j) += a(i,k)*b(k,j);
-  return p;
-  }
 
-Matrix operator-(const Matrix& a,const Matrix& b)
-  {
-  assert(a.cols == b.cols);
-  assert(a.rows == b.rows);
-  Matrix p(a.rows, a.cols);
-  for(int i = 0; i < p.rows;i++)
-    for(int j = 0; j < p.cols;j++)
-      p(i,j) = a(i,j) - b(i,j);
-  return p;
-  }
-
-Matrix operator+(const Matrix& a,const Matrix& b)
-  {
-  assert(a.cols == b.cols);
-  assert(a.rows == b.rows);
-  Matrix p(a.rows, a.cols);
-  for(int i = 0; i < p.rows;i++)
-    for(int j = 0; j < p.cols;j++)
-      p(i,j) = a(i,j) + b(i,j);
-  return p;
-  }
-
-Matrix Matrix::transpose(void) const
-  {
-  const Matrix& m=*this;
-  Matrix t(cols,rows);
-  for(int i = 0; i < t.rows;i++)
-    for(int j = 0; j < t.cols;j++)
-      t(i,j) = m(j,i);
-  return t;
-  }
-
-Matrix operator*(double scale, const Matrix& a)
-  {
-  Matrix b=a;
-  for(int q1=0;q1<a.rows;q1++)for(int q2=0;q2<a.cols;q2++)b(q1,q2)*=scale;
-  return b;
-  }
-
-Matrix operator*(const Matrix& a, double scale) { return scale*a;}
 
 void Matrix::print(void) const 
   {
@@ -146,6 +96,16 @@ Matrix LUP_solve(const Matrix& L, const Matrix& U, const Matrix& p, const Matrix
   return c;
   }
 
+Matrix Matrix::transpose(void) const
+  {
+  const Matrix& m=*this;
+  Matrix t(cols,rows);
+  for(int i = 0; i < t.rows;i++)
+    for(int j = 0; j < t.cols;j++)
+      t(i,j) = m(j,i);
+  return t;
+  }
+
 Matrix Matrix::inverse(void) const
   {
   const Matrix& m=*this;
@@ -163,7 +123,12 @@ Matrix Matrix::inverse(void) const
         if(index==-1 || fabs(c(i,k)) > fabs(c(index,k)))
           index = i;
     
-    assert(index != -1 && "Can't invert. Matrix is singular\n");
+    //assert(index != -1 && "Can't invert. Matrix is singular\n");
+    if(index==-1)
+      {
+      printf("Can't invert. Matrix is singular\n");
+      return Matrix::identity(m.rows,m.cols);
+      }
     
     for(int i=0;i<c.cols;i++)swap(c(k,i),c(index,i));
     

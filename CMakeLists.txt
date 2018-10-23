@@ -38,5 +38,6 @@ link_libraries(uwimg++ m stdc++)
 add_executable(test0 src/test/test0.cpp)
 add_executable(test1 src/test/test1.cpp)
 add_executable(test2 src/test/test2.cpp)
+add_executable(make-panorama src/test/panorama.cpp)
 
 add_subdirectory(src/pango)

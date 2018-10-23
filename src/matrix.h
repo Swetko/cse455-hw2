@@ -80,12 +80,50 @@ struct Matrix
   
   };
 
-Matrix operator*(double scale,const Matrix& a);
-Matrix operator*(const Matrix& a,double scale);
+inline Matrix operator*(const Matrix& a,const Matrix& b)
+  {
+  assert(a.cols == b.rows);
+  Matrix p(a.rows, b.cols);
+  for(int i = 0; i < p.rows;i++)
+      for(int j = 0; j < p.cols;j++)
+          for(int k = 0; k < a.cols;k++)
+              p(i,j) += a(i,k)*b(k,j);
+  return p;
+  }
 
-Matrix operator*(const Matrix& a,const Matrix& b);
-Matrix operator+(const Matrix& a,const Matrix& b);
-Matrix operator-(const Matrix& a,const Matrix& b);
+inline Matrix operator-(const Matrix& a,const Matrix& b)
+  {
+  assert(a.cols == b.cols);
+  assert(a.rows == b.rows);
+  Matrix p(a.rows, a.cols);
+  for(int i = 0; i < p.rows;i++)
+    for(int j = 0; j < p.cols;j++)
+      p(i,j) = a(i,j) - b(i,j);
+  return p;
+  }
+
+inline Matrix operator+(const Matrix& a,const Matrix& b)
+  {
+  assert(a.cols == b.cols);
+  assert(a.rows == b.rows);
+  Matrix p(a.rows, a.cols);
+  for(int i = 0; i < p.rows;i++)
+    for(int j = 0; j < p.cols;j++)
+      p(i,j) = a(i,j) + b(i,j);
+  return p;
+  }
+
+inline Matrix operator*(double scale, const Matrix& a)
+  {
+  Matrix b=a;
+  for(int q1=0;q1<a.rows;q1++)for(int q2=0;q2<a.cols;q2++)b(q1,q2)*=scale;
+  return b;
+  }
+
+inline Matrix operator*(const Matrix& a, double scale) { return scale*a;}
+
+
+
 
 void print_matrix(const Matrix &m);
 Matrix LUP_solve(const Matrix& L, const Matrix& U, const Matrix& p, const Matrix& b);

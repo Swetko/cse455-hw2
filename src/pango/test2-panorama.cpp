@@ -32,8 +32,8 @@ struct Data
 
 int main(int argc, char** argv)
   {
-  const string file1=argc==3?argv[1]:"pano/Rainier1.png";
-  const string file2=argc==3?argv[2]:"pano/Rainier2.png";
+  const string file1=argc==3?argv[1]:"pano/rainier/Rainier1.png";
+  const string file2=argc==3?argv[2]:"pano/rainier/Rainier2.png";
   
   // Create OpenGL window in single line
   pangolin::CreateWindowAndBind("Main",1280,720);

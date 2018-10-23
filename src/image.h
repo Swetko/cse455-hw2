@@ -151,6 +151,8 @@ struct Image
   float nn_interpolate(float x, float y, int c) const;
   float bilinear_interpolate(float x, float y, int c) const;
   
+  int size(void) const { return w*h*c; }
+  
   // member functions for modifying image
   void l1_normalize(void);
   void RGBtoHSV(void);
@@ -169,13 +171,11 @@ struct Image
   
   };
 
-
-// Compatibility 
 inline float get_pixel(const Image& im, int x, int y, int c)          { return im.get_pixel(x,y,c); }
 inline void  set_pixel(      Image& im, int x, int y, int c, float v) {        im.set_pixel(x,y,c,v); }
-bool operator ==(const Image& a, const Image& b);
-
 inline Image make_image(int w,int h, int c){return Image(w,h,c);}
+
+bool operator ==(const Image& a, const Image& b);
 
 // A 2d point.
 // float x, y: the coordinates of the point.
