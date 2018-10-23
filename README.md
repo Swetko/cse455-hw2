@@ -313,37 +313,36 @@ In order to get perfect grade you not only need to implement each feature of the
 We get `output/XXX/all.png` that looks stiched well (small imperfection such as in `columbia-all.jpg` are acceptable).
 
 #### 5.3 Grading
-    make_1d_gaussian	   3
-    smooth_image	       4
-    structure_matrix	   6
-    cornerness_response	   3
-    nms_image	           3
-    detect_corners	       3
-    	                  22
-    	
-    l1_distance	              1
-    match_descriptors_a2b	  5
-    match_descriptors	      5
-    project_point	          3
-    point_distance	          1
-    model_inliers	          5
-    randomize_matches	      2
-    compute_homography_ba	  8
-    RANSAC                 	  8
-    combine_images	          8
-    cylindrical_project	      6
-    spherical_project	      6
-                             58
-    	
-    ./make-panorama rainier	    5 (have to stitch all of them)
-    ./make-panorama sun	        5 (have to stitch all of them)
-    ./make-panorama helens	    5 (have to stitch all of them)
-    ./make-panorama field	    5 (have to stitch just the 6 as per the panorama.cpp)
-    	                       20
+    make_1d_gaussian     3
+    smooth_image         4
+    structure_matrix     6
+    cornerness_response  3
+    nms_image            3
+    detect_corners       3
+                        22
+      
+    l1_distance              1
+    match_descriptors_a2b    5
+    match_descriptors        5
+    project_point            3
+    point_distance           1
+    model_inliers            5
+    randomize_matches        2
+    compute_homography_ba    8
+    RANSAC                   8
+    combine_images           8
+    cylindrical_project      6
+    spherical_project        6
+                            58
+      
+    ./make-panorama rainier    5 (have to stitch all of them)
+    ./make-panorama sun        5 (have to stitch all of them)
+    ./make-panorama helens     5 (have to stitch all of them)
+    ./make-panorama field      5 (have to stitch just the 6 as per the panorama.cpp)
+                              20
     
     EXTRA CREDIT:
     
-    ./make-panorama cse	         20	OPT  (if you stitch 15 or more of the pics you get credit! I got at most 8)
-    ./make-panorama columbia	 10	OPT  (have to stitch all of them, and get similar result to the header of the readme)
-    (exact_eigenvalue,method=1)	  5	OPT
-
+    ./make-panorama cse           20  OPT  (if you stitch 15 or more of the pics you get credit! I got at most 8)
+    ./make-panorama columbia      10  OPT  (have to stitch all of them, and get similar result to the header of the readme)
+    (exact_eigenvalue,method=1)    5  OPT
