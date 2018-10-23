@@ -2,9 +2,10 @@
 
 # CSE 455 Homework 2 #
 
-#### UPDATED: Friday, Oct19 8am: added libglew.so, you can build Pangolin without sudo ####
-#### UPDATED: Friday, Oct19 11am: added Visual Studio 2017 project with Pangolin for Windows. ####
-#### UPDATED: Monday, Oct22 12pm: Fixed image zoom in Pango for Windows. ####
+#### UPDATED: Friday,  Oct19 8am: added libglew.so, you can build Pangolin without sudo ####
+#### UPDATED: Friday,  Oct19 11am: added Visual Studio 2017 project with Pangolin for Windows. ####
+#### UPDATED: Monday,  Oct22 12pm: Fixed image zoom in Pango for Windows. ####
+#### UPDATED: Tuesday, Oct23 14pm: Added make-panorama and grading rubric. ####
 
 Welcome friends,
 
