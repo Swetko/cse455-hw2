@@ -1,11 +1,11 @@
 ![panorama of field](figs/columbia-all.jpg)
 
 # CSE 455 Homework 2 #
-
 #### UPDATED: Friday,  Oct19 8am: added libglew.so, you can build Pangolin without sudo ####
 #### UPDATED: Friday,  Oct19 11am: added Visual Studio 2017 project with Pangolin for Windows. ####
 #### UPDATED: Monday,  Oct22 12pm: Fixed image zoom in Pango for Windows. ####
 #### UPDATED: Tuesday, Oct23 14pm: Added make-panorama and grading rubric. ####
+#### UPDATED: Tuesday, Oct24 13pm: Clarified filter for gradients for structure matrix (1.1). ####
 
 Welcome friends,
 
@@ -151,7 +151,7 @@ We'll be implementing Harris corner detection as discussed in class. The basic a
 
 ## 1.1 Compute the structure matrix ##
 
-Fill in `Image structure_matrix(const Image& im2, float sigma)` in `harris_image.cpp`. This will perform the first 3 steps of the algorithm: calculating derivatives, the corresponding measures, and the weighted sum of nearby derivative information. As discussed in class, this weighted sum can be easily computed with a Gaussian blur.
+Fill in `Image structure_matrix(const Image& im2, float sigma)` in `harris_image.cpp`. This will perform the first 3 steps of the algorithm: calculating derivatives, the corresponding measures, and the weighted sum of nearby derivative information. As discussed in class, this weighted sum can be easily computed with a Gaussian blur. For gradients use the sobel filters (slightly smoothed versions of the regular -101 filter). It is true that we don't have to do that but please for this exercise do it, so it can match the output provided. 
 
 ### 1.1b Make a fast smoother ###
 
