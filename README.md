@@ -6,6 +6,7 @@
 #### UPDATED: Monday,  Oct22 12pm: Fixed image zoom in Pango for Windows. ####
 #### UPDATED: Tuesday, Oct23 14pm: Added make-panorama and grading rubric. ####
 #### UPDATED: Tuesday, Oct24 13pm: Clarified filter for gradients for structure matrix (1.1). ####
+#### UPDATED: Tuesday, Oct24 17pm: Added SIFT for extra credit. ####
 
 Welcome friends,
 
