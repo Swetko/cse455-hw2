@@ -304,7 +304,7 @@ Does homography even exist in the cylindrical and spherical case?
 You should have to modify only `harris_image.cpp`, `panorama_image.cpp` and `test\panorama.cpp` (excluding changes to the rest of the code due to C++ switch). You can submit just these 3 files (and any supporting files), or the whole folder, as you wish. We are going to test each function separately to give you partial credit.
 
 #### 5.2 Make some panoramas ####
-In order to get perfect grade you not only need to implement each feature of the algorithm but be able to run it to stitch multiple images together. We have provided the program `make-panorama` that can calls your basic function `make_panorama` to create complex panoramas. You would need to choose the parameters of your algorithm. Make sure that the parameters are such that your algorithm can stitch complex panos. If necessary use the `panorama` GUI to help with parameter choosing. Some of the functions are implemented there and some not. For `sun` and `helens` you have to choose the sequence yourself. At the end you should make the necessary changes to `panorama.cpp` so that when we call 
+In order to get perfect grade you not only need to implement each feature of the algorithm but be able to run it to stitch multiple images together. We have provided the program `make-panorama` that can calls your basic function `make_panorama` to create complex panoramas. You would need to choose the parameters of your algorithm. Make sure that the parameters are such that your algorithm can stitch complex panos. If necessary use the `panorama` GUI to help with parameter choosing. Some of the functions are implemented there and some not. For `sun` and `helens` you have to choose the order of stitching yourself. At the end you should make the necessary changes to `panorama.cpp` so that when we call 
 
     ./make-panorama rainier
     ./make-panorama field
@@ -313,7 +313,13 @@ In order to get perfect grade you not only need to implement each feature of the
 
 We get `output/XXX/all.png` that looks stiched well (small imperfection such as in `columbia-all.jpg` are acceptable).
 
-#### 5.3 Grading ####
+#### 5.3 Extra credit ####
+1. Implement exact 2nd eigenvalue! - 5pts.
+2. Make panorama with all the pics from `columbia` peak. - 10pts. 
+3. Make panorama with all the pics from `cse` glade. - 20pts. 
+4. Implement Sift features. They might be needed for the `cse` panorama. Use the pics form the `loop` folder and stitch as many of them. You can only do those if your features are rotationally invariant and due to the resulting distortions scale invariant. Since you might have to make big changes to your code, make sure all the other functions still work. If you do SIFT please submit all your code and modify `CMakeLists.txt` to produce executable `showcase-sift`! - 50pts
+
+#### 5.4 Grading ####
     make_1d_gaussian     3
     smooth_image         4
     structure_matrix     6
@@ -344,12 +350,13 @@ We get `output/XXX/all.png` that looks stiched well (small imperfection such as 
     
     EXTRA CREDIT:
     
-    ./make-panorama cse           20  OPT  (if you stitch 15 or more of the pics you get credit! I got at most 8)
-    ./make-panorama columbia      10  OPT  (have to stitch all of them, and get similar result to the header of the readme)
-    (exact_eigenvalue,method=1)    5  OPT
+    SIFT (./showcase-sift)        50  OPTIONAL                         
+    ./make-panorama cse           20  OPTIONAL  (if you stitch 15 or more of the pics you get credit! I got at most 8)
+    ./make-panorama columbia      10  OPTIONAL  (have to stitch all of them, and get similar result to the header of the readme)
+    (exact_eigenvalue,method=1)    5  OPTIONAL
 
 
-#### 5.4 For Fun ####
+#### 5.5 For Fun ####
 Play with `make-panorama wall/cse/columbia`. Can you stitch them? If not why? Is it because of bad projections? Try `wall`. This contains archaeological writings from the last few years and makes for a nice flat panorama. Remember, homography should only work on flat surfaces!! Try stitching any two overlapping images. Notice how perfect the stitching is?? Now try to do more! Notice any problems? Why is that? Do we need better features (sift?) ? Why does geometry looks so distorted?? Wasn't homography fine for flat surfaces? What's going on?? Can you figure out a way to fix it?
 
 You are not graded on this, but highly recommended to play with those. It'll help you get a lot of intuition about cameras, 3d/2d geometry and projections and features. Making a panorama software has so many components!!
