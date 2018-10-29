@@ -6,16 +6,19 @@
 // Pangolin uses HWC instead of CHW
 inline pangolin::TypedImage toPangolin(const Image& im)
   {
+  TIME(1);
   assert(im.c==1 || im.c==3);
-  pangolin::PixelFormat fmt=im.c==1?pangolin::PixelFormatFromString("GRAY32F")
-                                   :pangolin::PixelFormatFromString("RGB96F");
+  pangolin::PixelFormat fmt=im.c==1?pangolin::PixelFormatFromString("GRAY8")
+                                   :pangolin::PixelFormatFromString("RGB24");
+  //pangolin::PixelFormat fmt=im.c==1?pangolin::PixelFormatFromString("GRAY32F")
+  //                                 :pangolin::PixelFormatFromString("RGB96F");
   
   pangolin::TypedImage a(im.w,im.h,fmt);
   
-  float*data=(float*)a.ptr;
+  unsigned char*data=(unsigned char*)a.ptr;
   
   for(int q2=0;q2<im.h;q2++)for(int q1=0;q1<im.w;q1++)for(int c=0;c<im.c;c++)
-    *(data++)=im(q1,q2,c);
+    *(data++)=(unsigned char)(im(q1,q2,c)*255.0);
   
   return a;
   }
