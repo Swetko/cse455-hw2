@@ -7,6 +7,7 @@
 #### UPDATED: Tuesday, Oct23 14pm: Added make-panorama and grading rubric. ####
 #### UPDATED: Tuesday, Oct24 13pm: Clarified filter for gradients for structure matrix (1.1). ####
 #### UPDATED: Tuesday, Oct24 17pm: Added SIFT for extra credit. ####
+#### UPDATED: Tuesday, Oct29 14pm: Pangolin now works in VM. ####
 
 Welcome friends,
 
@@ -88,7 +89,7 @@ It allows you to modify the parameters of your algorithms and visualize the resu
 
 Install any missing dependencies.
 
-### 0.2 Install Pangolin on Fedora or CentOS ###
+### 0.2 Install Pangolin on Fedora or CentOS (Including CSE VM) ###
     sudo yum install glew-devel.x86_64
     git clone https://github.com/stevenlovegrove/Pangolin.git
     cd Pangolin
